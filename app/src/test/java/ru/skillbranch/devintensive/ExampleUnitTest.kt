@@ -4,7 +4,7 @@ import org.junit.Test
 
 import org.junit.Assert.*
 import ru.skillbranch.devintensive.extensions.*
-import ru.skillbranch.devintensive.models.User
+import ru.skillbranch.devintensive.models.*
 import ru.skillbranch.devintensive.utils.Utils
 import java.util.*
 
@@ -17,6 +17,26 @@ class ExampleUnitTest {
     @Test
     fun addition_isCorrect() {
         assertEquals(4, 2 + 2)
+    }
+
+    @Test
+    fun test_data_maping() {
+        val user = User.makeUser("Диван Живанов")
+        val newuser = user.copy(lastVisit = Date().add(-7, TimeUnits.SECOND))
+        println(newuser)
+
+        val userView = newuser.toUserView()
+        userView.printMe()
+    }
+
+    @Test
+    fun test_abstract_factory() {
+        val user = User.makeUser("Диван Живанов")
+        val txtMessage = BaseMessage.makeMessage(user, Chat(id = "0"), payload = "Any text message", type = "text")
+        val imgMessage = BaseMessage.makeMessage(user, Chat(id = "0"), payload = "Any image url", type = "image")
+
+        println(txtMessage.formatMessage())
+        println(imgMessage.formatMessage())
     }
 
     @Test
