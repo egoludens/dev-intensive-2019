@@ -3,6 +3,9 @@ package ru.skillbranch.devintensive
 import org.junit.Test
 
 import org.junit.Assert.*
+import ru.skillbranch.devintensive.extensions.SECOND
+import ru.skillbranch.devintensive.extensions.TimeUnits
+import ru.skillbranch.devintensive.extensions.add
 import ru.skillbranch.devintensive.extensions.format
 import ru.skillbranch.devintensive.models.User
 import ru.skillbranch.devintensive.utils.Utils
@@ -45,12 +48,20 @@ class ExampleUnitTest {
         val nullito = Utils.parseFullName(null)
         println(nullito)
     }
-    @Test
 
+    @Test
     fun hometask_2_Date_format_isCorrect()
     {
         val testDate = Date(System.currentTimeMillis())
         println(testDate.format())
         println(testDate.format("HH:mm"))
+    }
+
+    @Test
+    fun hometask_2_Date_add_isCorrect()
+    {
+        println(Date())
+        println(Date().add(10, TimeUnits.SECOND))
+        println(Date().add(-2, TimeUnits.HOUR))
     }
 }
