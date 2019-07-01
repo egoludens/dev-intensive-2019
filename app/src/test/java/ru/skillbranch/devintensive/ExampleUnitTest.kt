@@ -73,4 +73,11 @@ class ExampleUnitTest {
         println(Utils.toInitials(null, null)) //null
         println(Utils.toInitials(" ", "")) //null
     }
+
+    @Test
+    fun hometask_2_Utils_transliteration_works()
+    {
+        println(Utils.transliteration("Женя Стереотипов")) //Zhenya Stereotipov
+        println(Utils.transliteration("Amazing Петр","_")) //Amazing_Petr
+    }
 }
