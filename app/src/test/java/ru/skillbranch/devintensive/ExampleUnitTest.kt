@@ -3,10 +3,7 @@ package ru.skillbranch.devintensive
 import org.junit.Test
 
 import org.junit.Assert.*
-import ru.skillbranch.devintensive.extensions.SECOND
-import ru.skillbranch.devintensive.extensions.TimeUnits
-import ru.skillbranch.devintensive.extensions.add
-import ru.skillbranch.devintensive.extensions.format
+import ru.skillbranch.devintensive.extensions.*
 import ru.skillbranch.devintensive.models.User
 import ru.skillbranch.devintensive.utils.Utils
 import java.util.*
@@ -79,5 +76,16 @@ class ExampleUnitTest {
     {
         println(Utils.transliteration("Женя Стереотипов")) //Zhenya Stereotipov
         println(Utils.transliteration("Amazing Петр","_")) //Amazing_Petr
+    }
+
+    @Test
+    fun hometask_2_Date_humanizeDiff_works()
+    {
+        println(Date().add(-2, TimeUnits.HOUR).humanizeDiff()) //2 часа назад
+        println(Date().add(-5, TimeUnits.DAY).humanizeDiff()) //5 дней назад
+        println(Date().add(2, TimeUnits.MINUTE).humanizeDiff()) //через 2 минуты
+        println(Date().add(7, TimeUnits.DAY).humanizeDiff()) //через 7 дней
+        println(Date().add(-400, TimeUnits.DAY).humanizeDiff()) //более года назад
+        println(Date().add(400, TimeUnits.DAY).humanizeDiff()) //более чем через год
     }
 }
