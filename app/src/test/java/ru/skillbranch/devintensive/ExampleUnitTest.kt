@@ -64,4 +64,13 @@ class ExampleUnitTest {
         println(Date().add(10, TimeUnits.SECOND))
         println(Date().add(-2, TimeUnits.HOUR))
     }
+
+    @Test
+    fun hometask_2_Utils_toInitials_works()
+    {
+        println(Utils.toInitials("john" ,"doe")) //JD
+        println(Utils.toInitials("John", null)) //J
+        println(Utils.toInitials(null, null)) //null
+        println(Utils.toInitials(" ", "")) //null
+    }
 }

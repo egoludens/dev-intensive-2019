@@ -14,5 +14,20 @@ object Utils {
         return Pair(firstName, lastName)
     }
 
+    fun toInitials(firstName: String?, lastName: String?): String?
+    {
+        var initials: String? = ""
+        for (part:String? in arrayOf(firstName, lastName))
+        {
+            initials += when
+                {
+                    part == null -> ""
+                    part.trim() == "" -> ""
+                    else -> part.substring(0, 1).toUpperCase()
+                }
+        }
+        initials = if(initials == "") null else initials
+        return initials
+    }
 
 }
