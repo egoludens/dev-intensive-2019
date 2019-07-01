@@ -3,8 +3,10 @@ package ru.skillbranch.devintensive
 import org.junit.Test
 
 import org.junit.Assert.*
+import ru.skillbranch.devintensive.extensions.format
 import ru.skillbranch.devintensive.models.User
 import ru.skillbranch.devintensive.utils.Utils
+import java.util.*
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -42,5 +44,13 @@ class ExampleUnitTest {
 
         val nullito = Utils.parseFullName(null)
         println(nullito)
+    }
+    @Test
+
+    fun hometask_2_Date_format_isCorrect()
+    {
+        val testDate = Date(System.currentTimeMillis())
+        println(testDate.format())
+        println(testDate.format("HH:mm"))
     }
 }
