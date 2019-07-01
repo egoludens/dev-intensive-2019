@@ -88,4 +88,20 @@ class ExampleUnitTest {
         println(Date().add(-400, TimeUnits.DAY).humanizeDiff()) //более года назад
         println(Date().add(400, TimeUnits.DAY).humanizeDiff()) //более чем через год
     }
+
+    @Test
+    fun hometask_2_User_Builder_works()
+    {
+        val user:User = User.Builder().id("TEST_ID")
+            .firstName("John")
+            .lastName("Doe")
+            .avatar(null)
+            .rating(0)
+            .respect(0)
+            .lastVisit(Date())
+            .isOnline(false)
+            .build() // должен вернуть объект User
+        println(user)
+    }
+
 }
