@@ -7,8 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ffe0a6cd-8c52-4f38-8cc8-9aeab60ea6d7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/ru/skillbranch/devintensive/extensions/String.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ru/skillbranch/devintensive/extensions/String.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ru/skillbranch/devintensive/extensions/String.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/test/java/ru/skillbranch/devintensive/ExampleUnitTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/ru/skillbranch/devintensive/ExampleUnitTest.kt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,8 +40,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/test/java/ru/skillbranch/devintensive/ExampleUnitTest.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="140" column="41" selection-start-line="140" selection-start-column="41" selection-end-line="140" selection-end-column="41" />
+            <state relative-caret-position="521">
+              <caret line="148" column="138" selection-start-line="148" selection-start-column="138" selection-end-line="148" selection-end-column="138" />
             </state>
           </provider>
         </entry>
@@ -61,8 +61,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/skillbranch/devintensive/extensions/String.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+            <state relative-caret-position="323">
+              <caret line="33" column="33" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
+              <folding>
+                <element signature="e#738#1201#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -101,8 +104,8 @@
         <option value="$PROJECT_DIR$/app/src/main/java/ru/skillbranch/devintensive/models/BaseMessage.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/skillbranch/devintensive/models/ImageMessage.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/ru/skillbranch/devintensive/extensions/Date.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/ru/skillbranch/devintensive/extensions/String.kt" />
         <option value="$PROJECT_DIR$/app/src/test/java/ru/skillbranch/devintensive/ExampleUnitTest.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/ru/skillbranch/devintensive/extensions/String.kt" />
       </list>
     </option>
   </component>
@@ -192,7 +195,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Android JUnit.ExampleUnitTest.hometask_2_truncate">
+  <component name="RunManager" selected="Android JUnit.ExampleUnitTest.hometask_2_stripHtml">
     <configuration name="ExampleUnitTest.hometask_2_User_Builder_works" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
       <module name="app" />
       <extension name="coverage">
@@ -227,6 +230,23 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ExampleUnitTest.hometask_2_stripHtml" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.skillbranch.devintensive.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ru.skillbranch.devintensive" />
+      <option name="MAIN_CLASS_NAME" value="ru.skillbranch.devintensive.ExampleUnitTest" />
+      <option name="METHOD_NAME" value="hometask_2_stripHtml" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ExampleUnitTest.hometask_2_truncate" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
       <module name="app" />
       <extension name="coverage">
@@ -255,23 +275,6 @@
       <option name="PACKAGE_NAME" value="ru.skillbranch.devintensive" />
       <option name="MAIN_CLASS_NAME" value="ru.skillbranch.devintensive.ExampleUnitTest" />
       <option name="METHOD_NAME" value="test_abstract_factory" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <method v="2">
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ExampleUnitTest.test_dataq_maping" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
-      <module name="app" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ru.skillbranch.devintensive.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="ru.skillbranch.devintensive" />
-      <option name="MAIN_CLASS_NAME" value="ru.skillbranch.devintensive.ExampleUnitTest" />
-      <option name="METHOD_NAME" value="test_dataq_maping" />
       <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
@@ -340,11 +343,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Android JUnit.ExampleUnitTest.hometask_2_stripHtml" />
+        <item itemvalue="Android JUnit.ExampleUnitTest.hometask_2_User_Builder_works" />
         <item itemvalue="Android JUnit.ExampleUnitTest.hometask_2_truncate" />
         <item itemvalue="Android JUnit.ExampleUnitTest.hometask_2_plural" />
         <item itemvalue="Android JUnit.ExampleUnitTest.test_abstract_factory" />
-        <item itemvalue="Android JUnit.ExampleUnitTest.test_dataq_maping" />
-        <item itemvalue="Android JUnit.ExampleUnitTest.hometask_2_User_Builder_works" />
       </list>
     </recent_temporary>
   </component>
@@ -362,35 +365,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ExampleUnitTest_hometask_2_User_Builder_works - 2019.07.02 at 01h 53m 02s.xml">
+    <history-entry file="ExampleUnitTest_hometask_2_stripHtml - 2019.07.06 at 16h 38m 58s.xml">
+      <configuration name="ExampleUnitTest.hometask_2_stripHtml" configurationId="AndroidJUnit" />
+    </history-entry>
+    <history-entry file="ExampleUnitTest_hometask_2_stripHtml - 2019.07.06 at 16h 39m 32s.xml">
+      <configuration name="ExampleUnitTest.hometask_2_stripHtml" configurationId="AndroidJUnit" />
+    </history-entry>
+    <history-entry file="ExampleUnitTest_hometask_2_stripHtml - 2019.07.06 at 16h 39m 44s.xml">
+      <configuration name="ExampleUnitTest.hometask_2_stripHtml" configurationId="AndroidJUnit" />
+    </history-entry>
+    <history-entry file="ExampleUnitTest_hometask_2_stripHtml - 2019.07.06 at 16h 39m 59s.xml">
+      <configuration name="ExampleUnitTest.hometask_2_stripHtml" configurationId="AndroidJUnit" />
+    </history-entry>
+    <history-entry file="ExampleUnitTest_hometask_2_stripHtml - 2019.07.06 at 16h 40m 02s.xml">
+      <configuration name="ExampleUnitTest.hometask_2_stripHtml" configurationId="AndroidJUnit" />
+    </history-entry>
+    <history-entry file="ExampleUnitTest_hometask_2_stripHtml - 2019.07.06 at 16h 40m 06s.xml">
+      <configuration name="ExampleUnitTest.hometask_2_stripHtml" configurationId="AndroidJUnit" />
+    </history-entry>
+    <history-entry file="ExampleUnitTest_hometask_2_stripHtml - 2019.07.06 at 17h 11m 35s.xml">
+      <configuration name="ExampleUnitTest.hometask_2_stripHtml" configurationId="AndroidJUnit" />
+    </history-entry>
+    <history-entry file="ExampleUnitTest_hometask_2_User_Builder_works - 2019.07.06 at 17h 13m 52s.xml">
       <configuration name="ExampleUnitTest.hometask_2_User_Builder_works" configurationId="AndroidJUnit" />
     </history-entry>
-    <history-entry file="ExampleUnitTest_test_dataq_maping - 2019.07.02 at 02h 15m 08s.xml">
-      <configuration name="ExampleUnitTest.test_dataq_maping" configurationId="AndroidJUnit" />
+    <history-entry file="ExampleUnitTest_hometask_2_stripHtml - 2019.07.06 at 17h 14m 00s.xml">
+      <configuration name="ExampleUnitTest.hometask_2_stripHtml" configurationId="AndroidJUnit" />
     </history-entry>
-    <history-entry file="ExampleUnitTest_test_dataq_maping - 2019.07.02 at 02h 17m 53s.xml">
-      <configuration name="ExampleUnitTest.test_dataq_maping" configurationId="AndroidJUnit" />
-    </history-entry>
-    <history-entry file="ExampleUnitTest_test_abstract_factory - 2019.07.02 at 02h 43m 09s.xml">
-      <configuration name="ExampleUnitTest.test_abstract_factory" configurationId="AndroidJUnit" />
-    </history-entry>
-    <history-entry file="ExampleUnitTest_test_abstract_factory - 2019.07.02 at 02h 44m 07s.xml">
-      <configuration name="ExampleUnitTest.test_abstract_factory" configurationId="AndroidJUnit" />
-    </history-entry>
-    <history-entry file="ExampleUnitTest_test_abstract_factory - 2019.07.02 at 02h 55m 02s.xml">
-      <configuration name="ExampleUnitTest.test_abstract_factory" configurationId="AndroidJUnit" />
-    </history-entry>
-    <history-entry file="ExampleUnitTest_hometask_2_plural - 2019.07.06 at 10h 16m 41s.xml">
-      <configuration name="ExampleUnitTest.hometask_2_plural" configurationId="AndroidJUnit" />
-    </history-entry>
-    <history-entry file="ExampleUnitTest_hometask_2_plural - 2019.07.06 at 10h 19m 12s.xml">
-      <configuration name="ExampleUnitTest.hometask_2_plural" configurationId="AndroidJUnit" />
-    </history-entry>
-    <history-entry file="ExampleUnitTest_hometask_2_plural - 2019.07.06 at 10h 20m 05s.xml">
-      <configuration name="ExampleUnitTest.hometask_2_plural" configurationId="AndroidJUnit" />
-    </history-entry>
-    <history-entry file="ExampleUnitTest_hometask_2_truncate - 2019.07.06 at 10h 33m 49s.xml">
-      <configuration name="ExampleUnitTest.hometask_2_truncate" configurationId="AndroidJUnit" />
+    <history-entry file="ExampleUnitTest_hometask_2_stripHtml - 2019.07.06 at 17h 16m 05s.xml">
+      <configuration name="ExampleUnitTest.hometask_2_stripHtml" configurationId="AndroidJUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -427,6 +430,16 @@
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>result.removeRange(tagOpenPosition, tagClosePosition + 1)</expression-string>
+        <language-id>kotlin</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>result.removeRange(tagOpenPosition, tagClosePosition)</expression-string>
+        <language-id>kotlin</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>part?.substring(0, 1)</expression-string>
         <language-id>kotlin</language-id>
@@ -538,15 +551,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/ru/skillbranch/devintensive/extensions/String.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+        <state relative-caret-position="323">
+          <caret line="33" column="33" selection-start-line="33" selection-start-column="33" selection-end-line="33" selection-end-column="33" />
+          <folding>
+            <element signature="e#738#1201#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/test/java/ru/skillbranch/devintensive/ExampleUnitTest.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="140" column="41" selection-start-line="140" selection-start-column="41" selection-end-line="140" selection-end-column="41" />
+        <state relative-caret-position="521">
+          <caret line="148" column="138" selection-start-line="148" selection-start-column="138" selection-end-line="148" selection-end-column="138" />
         </state>
       </provider>
     </entry>

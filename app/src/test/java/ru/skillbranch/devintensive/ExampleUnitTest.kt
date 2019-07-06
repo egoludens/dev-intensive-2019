@@ -140,4 +140,12 @@ class ExampleUnitTest {
         println("Bender Bending Rodriguez — дословно «Сгибальщик Сгибающий Родригес»".truncate(15)) //Bender Bending...
         println("A     ".truncate(3)) //A
     }
+    @Test
+
+    fun hometask_2_stripHtml()
+    {
+        println("<p class=\"title\">Образовательное IT-сообщество Skill Branch</p>".stripHtml()) //Образовательное IT-сообщество Skill Branch
+        println("<p>Образовательное       IT-сообщество Skill Branch</p>".stripHtml()) //Образовательное IT-сообщество Skill Branch
+        println("<p>Образовательное  &amp;&amp;&lt;&gt;&#100;&#100wooo     IT-сообщество Skill Branch</p>".stripHtml()) //Образовательное wooo IT-сообщество Skill Branch
+    }
 }
