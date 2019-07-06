@@ -132,4 +132,12 @@ class ExampleUnitTest {
         println(TimeUnits.HOUR.plural(19)) //19 часов
         println(TimeUnits.DAY.plural(222)) //222 дня
     }
+
+    @Test
+    fun hometask_2_truncate()
+    {
+        println("Bender Bending Rodriguez — дословно «Сгибальщик Сгибающий Родригес»".truncate()) //Bender Bending R...
+        println("Bender Bending Rodriguez — дословно «Сгибальщик Сгибающий Родригес»".truncate(15)) //Bender Bending...
+        println("A     ".truncate(3)) //A
+    }
 }
