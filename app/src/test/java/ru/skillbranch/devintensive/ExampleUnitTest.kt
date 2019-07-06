@@ -124,4 +124,12 @@ class ExampleUnitTest {
         println(user)
     }
 
+    @Test
+    fun hometask_2_plural()
+    {
+        println(TimeUnits.SECOND.plural(1)) //1 секунду
+        println(TimeUnits.MINUTE.plural(4)) //4 минуты
+        println(TimeUnits.HOUR.plural(19)) //19 часов
+        println(TimeUnits.DAY.plural(222)) //222 дня
+    }
 }

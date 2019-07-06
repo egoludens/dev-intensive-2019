@@ -32,7 +32,7 @@ fun numeralRu(value: Int, single: String, few: String, many: String): String
 {
     return when {
         value % 10 == 0 -> many
-        value in 11..19 -> many
+        value % 100 in 11..19 -> many
         value % 10 == 1 -> single
         value % 10 in 1..4 -> few
         else -> many
@@ -104,8 +104,25 @@ fun Date.humanizeDiff(): String
 }
 
 enum class TimeUnits {
-    SECOND,
-    MINUTE,
-    HOUR,
-    DAY
+    SECOND {
+        override fun plural(value: Int): String {
+            return "$value ${numeralRu(value, "секунду", "секунды", "секунд")}"
+        }
+    },
+    MINUTE {
+        override fun plural(value: Int): String {
+            return "$value ${numeralRu(value, "минуту", "минуты", "минут")}"
+        }
+    },
+    HOUR {
+        override fun plural(value: Int): String {
+            return "$value ${numeralRu(value, "час", "часа", "часов")}"
+        }
+    },
+    DAY {
+        override fun plural(value: Int): String {
+            return "$value ${numeralRu(value, "день", "дня", "дней")}"
+        }
+    };
+    abstract fun plural(value: Int): String
 }
