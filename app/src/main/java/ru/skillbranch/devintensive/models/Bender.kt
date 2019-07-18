@@ -33,7 +33,7 @@ class Bender(var status: Status = Status.NORMAL, var question: Question = Questi
             question == Question.PROFESSION && answer.substring(0, 1).toLowerCase() != answer.substring(0, 1) -> false to "Профессия должна начинаться со строчной буквы"
             question == Question.MATERIAL && answer.contains(Regex("""\d""")) -> false to "Материал не должен содержать цифр"
             question == Question.BDAY && answer.contains(Regex("""^\D""")) -> false to "Год моего рождения должен содержать только цифры"
-            question == Question.BDAY && !(answer.length == 7 && answer.contains(Regex("""^\d"""))) -> false to "Серийный номер содержит только цифры, и их 7"
+            question == Question.SERIAL && !(answer.length == 7 && answer.contains(Regex("""^\d"""))) -> false to "Серийный номер содержит только цифры, и их 7"
             else -> true to ""
         }
     }
