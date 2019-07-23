@@ -14,6 +14,7 @@ class Bender(var status: Status = Status.NORMAL, var question: Question = Questi
     fun listenAnswer(answer: String) : Pair<String, Triple<Int, Int, Int>> {
         val validationResult = validateAnswer(answer)
         return when {
+            question == Question.IDLE -> "${question.question}" to status.color
             !validationResult.first -> "${validationResult.second}\n${question.question}" to status.color
             question.answers.contains(answer.toLowerCase()) -> {
                 question = question.nextQuestion()
@@ -57,7 +58,7 @@ class Bender(var status: Status = Status.NORMAL, var question: Question = Questi
         NAME("Как меня зовут?", listOf("бендер", "bender")) {
             override fun nextQuestion(): Question = PROFESSION
         },
-        PROFESSION("Назови мою профессию?", listOf("сгибальшик", "bender")){
+        PROFESSION("Назови мою профессию?", listOf("сгибальщик", "bender")){
             override fun nextQuestion(): Question = MATERIAL
         },
         MATERIAL("Из чего я сделан?", listOf("металл", "дерево", "metal", "iron", "wood")){
