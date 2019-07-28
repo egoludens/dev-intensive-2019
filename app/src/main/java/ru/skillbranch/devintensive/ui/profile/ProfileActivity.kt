@@ -1,113 +1,143 @@
-package ru.skillbranch.devintensive
+package ru.skillbranch.devintensive.ui.profile
 
-import android.content.SharedPreferences
-import android.graphics.Color
+import android.graphics.ColorFilter
 import android.graphics.PorterDuff
+import android.graphics.PorterDuffColorFilter
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.util.Log
-import android.view.KeyEvent
 import android.view.View
-import android.view.inputmethod.EditorInfo
 import android.widget.EditText
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.*
-import ru.skillbranch.devintensive.extensions.hideKeyboard
-import ru.skillbranch.devintensive.extensions.isKeyboardOpen
-import ru.skillbranch.devintensive.models.Bender
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
+import kotlinx.android.synthetic.main.activity_profile.*
+import ru.skillbranch.devintensive.R
+import ru.skillbranch.devintensive.models.Profile
+import ru.skillbranch.devintensive.viewmodels.ProfileViewModel
 
-class MainActivity : AppCompatActivity(), View.OnClickListener, TextView.OnEditorActionListener {
+class ProfileActivity : AppCompatActivity() {
 
-    lateinit var benderObj: Bender
-    lateinit var benderImage : ImageView
-    lateinit var textTxt : TextView
-    lateinit var messageEt : EditText
-    lateinit var sendBtn : ImageView
+    companion object {
+        const val IS_EDIT_MODE = "IS_EDIT_MODE"
+    }
+
+    lateinit private var viewModel: ProfileViewModel
+    var isEditMode = false
+    lateinit var viewFields : Map<String, TextView>
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        Log.d("M_ProfileActivity", "onCreate (begin)")
+        // TODO set custom Theme this before super and setContentView
+
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-//        benderImage = findViewById(R.id.iv_bender) as ImageView
-        benderImage = iv_bender
-        textTxt = tv_text
-        messageEt = et_message
-        sendBtn = iv_send
-
-        val status = savedInstanceState?.getString("STATUS") ?: Bender.Status.NORMAL.name
-        val question = savedInstanceState?.getString("QUESTION") ?: Bender.Question.NAME.name
-        benderObj = Bender(Bender.Status.valueOf(status), Bender.Question.valueOf(question))
-
-        Log.d("M_MainActivity", "onCreate")
-
-        val(r,g,b) = benderObj.status.color
-        benderImage.setColorFilter(Color.rgb(r,g,b), PorterDuff.Mode.MULTIPLY)
-
-        textTxt.text = benderObj.askQuestion()
-        sendBtn.setOnClickListener(this)
-
-        messageEt.setOnEditorActionListener(this)
-    }
-
-    override fun onRestart() {
-        super.onRestart()
-        Log.d("M_MainActivity", "onRestart")
-    }
-
-    override fun onStart() {
-        super.onStart()
-        Log.d("M_MainActivity", "onStart")
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Log.d("M_MainActivity", "onResume")
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Log.d("M_MainActivity", "onPause")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.d("M_MainActivity", "onStop")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.d("M_MainActivity", "onDestroy")
+        setContentView(R.layout.activity_profile)
+        initViews(savedInstanceState)
+        initViewModel()
+        Log.d("M_ProfileActivity", "onCreate (end)")
     }
 
     override fun onSaveInstanceState(outState: Bundle?) {
         super.onSaveInstanceState(outState)
-        outState?.putString("STATUS", benderObj.status.name)
-        outState?.putString("QUESTION", benderObj.question.name)
-        Log.d("M_MainActivity", "onSaveInstanceState ${benderObj.status.name}  ${benderObj.question.name}")
+        outState?.putBoolean(IS_EDIT_MODE, isEditMode)
     }
 
-    override fun onClick(v: View?){
-        Log.d("M_MainActivity", "keyboard is open = " + this.isKeyboardOpen().toString())
-        if (v?.id == R.id.iv_send && messageEt.text.toString().isNotEmpty()) {
-            val (phrase, color) = benderObj.listenAnswer(messageEt.text.toString())
-            messageEt.setText("")
-            val(r,g,b) = color
-            benderImage.setColorFilter(Color.rgb(r,g,b), PorterDuff.Mode.MULTIPLY)
-            textTxt.text = phrase
+    private fun initViewModel(){
+        viewModel = ViewModelProviders.of(this).get(ProfileViewModel::class.java)
+        viewModel.getProfileData().observe(this, Observer { updateUI(it) })
+        viewModel.getTheme().observe(this, Observer { updateTheme(it) })
+    }
+
+    private fun updateTheme(mode: Int) {
+        Log.d("M_ProfileActivity", "updateTheme")
+        delegate.setLocalNightMode(mode)
+    }
+
+    private fun updateUI(profile: Profile) {
+        profile.toMap().also {
+            for ((k, v) in viewFields) {
+                v.text = it[k].toString()
+            }
         }
     }
 
-    override fun onEditorAction(textView: TextView?, actionId: Int, event: KeyEvent?): Boolean {
-        if(actionId == EditorInfo.IME_ACTION_DONE)
-        {
-            Log.d("M_MainActivity", "onEditorAction: ActionDone")
-            this.hideKeyboard()
-            onClick(sendBtn)
-            return true
+    private fun initViews(savedInstanceState: Bundle?) {
+
+        viewFields = mapOf(
+            "nickname" to tv_nick_name,
+            "rank" to tv_rank,
+            "firstName" to et_first_name,
+            "lastName" to et_last_name,
+            "about" to et_about,
+            "repository" to et_repository,
+            "rating" to tv_rating,
+            "respect" to tv_respect
+        )
+
+        isEditMode = savedInstanceState?.getBoolean(IS_EDIT_MODE, false) ?: false
+        showCurrentMode(isEditMode)
+
+        btn_edit.setOnClickListener {
+            if(isEditMode) saveProfileInfo()
+            isEditMode = !isEditMode
+            showCurrentMode(isEditMode)
         }
-        return false
+
+        btn_switch_theme.setOnClickListener {
+            viewModel.switchTheme()
+        }
+
+    }
+
+    private fun showCurrentMode(isEdit: Boolean) {
+        val info = viewFields.filter { setOf("firstName","lastName","about", "repository").contains(it.key) }
+        for((_, v) in info) {
+            v as EditText
+            v.isFocusable  = isEdit
+            v.isFocusableInTouchMode = isEdit
+            v.isEnabled = isEdit
+            v.background.alpha = if (isEdit) 255 else 0
+        }
+
+        ic_eye.visibility = if(isEdit) View.GONE else View.VISIBLE
+        wr_about.isCounterEnabled = isEdit
+
+        with(btn_edit){
+            val filter: ColorFilter? = if (isEdit){
+                PorterDuffColorFilter(
+                    resources.getColor(R.color.color_accent, theme),
+                    PorterDuff.Mode.SRC_IN
+                )
+            } else {
+                null
+            }
+            val icon = if (isEdit) {
+                resources.getDrawable(R.drawable.ic_save_black_24dp, theme)
+            } else {
+                resources.getDrawable(R.drawable.ic_edit_black_24dp, theme)
+            }
+
+            background.colorFilter = filter
+            setImageDrawable(icon)
+        }
+
+    }
+
+    private fun saveProfileInfo() {
+        Profile(
+            firstName = et_first_name.text.toString(),
+            lastName = et_last_name.text.toString(),
+            about = et_about.text.toString(),
+            repository = et_repository.text.toString()
+        ).apply {
+            viewModel.saveProfileData(this)
+        }
     }
 
 }
+
+
+
+
+
