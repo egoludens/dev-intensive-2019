@@ -9,7 +9,8 @@ import android.util.AttributeSet
 import android.widget.ImageView
 import ru.skillbranch.devintensive.R
 import android.graphics.RectF
-import androidx.core.graphics.toRect
+import androidx.annotation.ColorRes
+import androidx.annotation.Dimension
 import androidx.core.graphics.toRectF
 import ru.skillbranch.devintensive.extensions.dpToPx
 
@@ -121,7 +122,7 @@ class CircleImageView @JvmOverloads constructor(
         return borderWidth
     }
 
-    fun setBorderWidthWidth(dp:Int) {
+    fun setBorderWidthWidth(@Dimension(unit = Dimension.DP) dp:Int) {
         borderWidth = dp
         setupView()
         buildResultBitmap()
