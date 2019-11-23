@@ -122,7 +122,7 @@ class CircleImageView @JvmOverloads constructor(
         return borderWidth
     }
 
-    fun setBorderWidthWidth(@Dimension(unit = Dimension.DP) dp:Int) {
+    fun setBorderWidth(@Dimension(unit = Dimension.DP) dp:Int) {
         borderWidth = dp
         setupView()
         buildResultBitmap()
