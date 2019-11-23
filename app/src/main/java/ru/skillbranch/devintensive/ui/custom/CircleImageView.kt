@@ -118,6 +118,7 @@ class CircleImageView @JvmOverloads constructor(
         }
     }
 
+    @Dimension(unit = Dimension.DP)
     fun getBorderWidth(): Int {
         return borderWidth
     }
@@ -135,6 +136,13 @@ class CircleImageView @JvmOverloads constructor(
 
     fun setBorderColor(hex:String) {
         borderColor = parseColor(hex)
+        setupView()
+        buildResultBitmap()
+        invalidate()
+    }
+
+    fun setBorderColor(@ColorRes colorId: Int) {
+        borderColor = colorId
         setupView()
         buildResultBitmap()
         invalidate()
